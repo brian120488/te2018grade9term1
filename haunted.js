@@ -7,6 +7,9 @@ let tryToEnter;
 let helpGhost;
 let endGame;
 
+let secret = false;
+let vbucks;
+
 let player = {
   status: undefined,
   courage: 0,
@@ -14,7 +17,7 @@ let player = {
   strength: 0,
   awesomeness: 0,
   weapon: "fists",
-  item: "flashlight"
+  item: "flashlight",
 };
 
 console.log("*** WELCOME TO THE HAUNTED HOUSE ***");
@@ -79,11 +82,12 @@ item: ${player.item}`);
     }
 
       if(endGame == "continue") {
-      player.courage + 5;
-      player.awesomeness = 9002;
-      player.status == "Strongest Player In The World";
-      console.log('It just so happens that the sword that you had found was the rarest sword in the world, so you easily beat all the monsters including the hilariously easy final boss.');
-      console.log(
+        secret = true;
+        player.courage + 5;
+        player.awesomeness = 9002;
+        player.status == "Strongest Player In The World";
+        console.log('It just so happens that the sword that you had found was the rarest sword in the world, so you easily beat all the monsters including the hilariously easy final boss.');
+        console.log(
 `status: ${player.status}
 courage: ${player.courage}
 intellect: ${player.intellect}
@@ -114,7 +118,7 @@ item: ${player.item}`)
         helpGhost = READLINE.question("Oh, right when you open the door you see a ghost somehow on fire, frantically trying blow it away! Should you help? (yes or no)");
       }
       
-      else if (tryToEnter == "try again") {
+      else if(tryToEnter == "try again") {
       player.intellect + 1;
       player.strength + 2;
       player.status = "Alive";
@@ -126,12 +130,12 @@ intellect: ${player.intellect}
 strength: ${player.strength}
 awesomeness: ${player.awesomeness}
 weapon: ${player.weapon}
-item: ${player.item}`);
+item: ${player.item}`); 
       }
 
         if(helpGhost == "yes" || helpGhost == "no") {
           player.status = "Dead";
-          console.log(`You want to help the ghost, but you are just too scared. Then, the ghost is able to destinguish the fire and sees that you didn't even bother to try to help him. Before you even get the chance to run, you are immobilized and see a hand stick right through your chest, blood spilling out of it.`);
+          console.log(`You want to help the ghost, but you are just too scared. Then, the ghost is able to destinguish the fire and sees that you didn't even bother to try to help him. Before you even get the chance to run, youare immobilized and see a hand stick right through your chest, blood spilling out of it.`);
           console.log(      
 `status: ${player.status}
 courage: ${player.courage}
@@ -141,5 +145,23 @@ awesomeness: ${player.awesomeness}
 weapon: ${player.weapon}
 item: ${player.item}`);
         } 
-     
-console.log("Thanks for playing!");
+    
+
+if(secret == false || secret == true) {
+  console.log("Thanks for playing!");
+  if(secret == true){
+    vbucks = READLINE.question("                                                                                                                                                                               how much vbucks pl0x?");
+  }
+}
+  if(vbucks >= 0) {
+    console.log("Fortnite is trash.");
+    if(vbucks > 0) {
+      console.log("GIVE ME ALL YOUR VBUCKS!!!");
+      if(vbucks >= 10000) {
+        console.log("l m a o   u   p00r");
+        if(vbucks >= 1000000) {
+          console.log("Give me your account, and I will give you free vbucks. No scam. Please. I have the omega and raven skin. I'm cool. .-.");
+        }
+      }
+    }
+  }    
