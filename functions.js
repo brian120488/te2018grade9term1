@@ -1,128 +1,161 @@
-/******************************************************************************
-                                   sumDouble
-Instructions:
-Given two number values, return their sum. Unless the two values are the same,
-then return double their sum.
-Examples:
-sumDouble(1, 2) → 3
-sumDouble(3, 2) → 5
-sumDouble(2, 2) → 8
-*******************************************************************************/
+const READLINE = require("readline-sync");
 
-function sumDouble(a, b) {
+// **** Problem 1: print a message ****
+// Write a function that prints any message you want.
 
+
+function printWords() {
+  let words = READLINE.question("What do you want the computer to print?: ");
+  console.log(`${words}`);
 }
 
-// Remove comment below to test this function.
-//testSumDouble();
+printWords();
 
-/******************************************************************************
-                                   makes10
-Instructions:
-Given 2 numbers, a and b, return true if one if them is 10 or if their sum is 10.
-Examples:
-makes10(9, 10) → true
-makes10(9, 9) → false
-makes10(1, 9) → true
-*******************************************************************************/
 
-function makes10(a, b) {
 
+
+
+
+// **** Problem 2: print a message 5 times ****
+// Write a function that calls the print message function five times.
+function print5Words() {
+  let words = READLINE.question("What do you want the computer to print 5 times?: ");
+  console.log(`${words}`);
+  console.log(`${words}`);
+  console.log(`${words}`);
+  console.log(`${words}`);
+  console.log(`${words}`);
 }
 
-// Remove comment below to test this function.
-//testMakes10();
+print5Words();
 
+
+
+
+
+//**** Problem 3:
+//******************************************************************************
+//Write a function that asks the user if they'd like to print your message
+//once or five times. Then call one of the two functions above based on what the user decides.
+
+function ask() {
+  let number = READLINE.question("Do you want to print your message one or five times?: ");
+  return number;
+}
+
+let num1 = ask();
+
+if(num1 == "5" || num1 == "five") {
+  print5Words();
+}
+
+else if(num1 == "1" || num1 == "one") {
+  printWords();
+}
+
+
+
+
+
+
+
+// **** Problem 4:
 /******************************************************************************
-                                   parrotTrouble
+                          parrotTrouble(talking, hour)
 Instructions:
 We have a loud talking parrot. The "talking" parameter is a boolean that
 represents if the parrot is talking. The "hour" parameter is the current hour
 time in the range 0..23. We are in trouble if the parrot is talking and the hour
 is before 7 or after 20. Return true if we are in trouble.
+
 Examples:
 parrotTrouble(true, 6) → true
 parrotTrouble(true, 7) → false
 parrotTrouble(false, 6) → false
 *******************************************************************************/
 
-function parrotTrouble(talking, hour) {
 
-}
 
 // Remove comment below to test this function.
-//testParrotTrouble();
+testParrotTrouble();
 
+function parrotTrouble(a,b) {
+  if(a == false || b >= 7 && b <= 20) {
+    return false;
+  }
+  else if(a == true && b < 7 || b > 20) {
+    let boolean = true;
+    return true;
+  }
+  let boolean = parrotTrouble(a,b);
+  console.log(`${boolean}`);
+}
+
+
+
+
+
+
+
+
+
+// **** Problem 5:
 /******************************************************************************
-                                   alarmClock
+                             alarmClock(day, vacation)
 Instructions:
 Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a boolean
 indicating if we are on vacation, return a string of the form "7:00" indicating
 when the alarm clock should ring. Weekdays, the alarm should be "7:00" and on
 the weekend it should be "10:00". Unless we are on vacation -- then on weekdays
 it should be "10:00" and weekends it should be "off".
+
 Examples:
 alarmClock(1, false) → "7:00"
 alarmClock(6, true) → "off"
 alarmClock(0, false) → "10:00"
 *******************************************************************************/
 
-function alarmClock(day, vacation) {
 
-}
 
 // Remove comment below to test this function.
-//testAlarmClock();
+testAlarmClock();
 
-/******************************************************************************
-                                   caughtSpeeding
-Instructions:
-You are driving a little too fast, and a police officer stops you. Write code
-to compute the result, encoded as a number value: 0=no ticket, 1=small ticket,
-2=big ticket. If speed is 60 or less, the result is 0. If speed is between 61
-and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2.
-Unless it is your birthday -- on that day, your speed can be 5 higher in all
-cases.
-Examples:
-caughtSpeeding(60, false) → 0
-caughtSpeeding(65, false) → 1
-caughtSpeeding(65, true) → 0
-*******************************************************************************/
+function alarmClock(day, vac) {
+  if(vac == "yes") {
+    let vac1 = true;
+  }
+  else {
+    let vac1 = false;
+  }
 
-function caughtSpeeding(speed, isBirthday) {
-
+  if(vac == false && day > 0 && day < 6){
+    let time = "7:00";
+    return time;
+  } 
+  else if(vac == false && day == 0 || day == 6 && vac == false) {
+    let time = "10:00";
+    return time;
+  }
+  else if(vac == true && day > 0 && day <= 5 ) {
+    let time = "10:00";
+    return time;
+  }
+  else if(vac == true && day == 0 || day == 6){
+    let time = "off";
+    return time;
+  }
 }
+let response = alarmClock();
 
-// Remove comment below to test this function.
-//testCaughtSpeeding();
+
+
+
 
 /****************************************************************************
                                     Tests
 *****************************************************************************/
-function testSumDouble() {
-  console.log();
-  console.log("sumDouble(1, 2) → 3 "	+ sumDouble(1, 2));
-  console.log("sumDouble(3, 2) → 5 " + sumDouble(3, 2));
-  console.log("sumDouble(2, 2) → 8 " + sumDouble(2, 2));
-  console.log("sumDouble(-1, 0) → -1 " + sumDouble(-1, 0));
-  console.log("sumDouble(3, 3) → 12 " + sumDouble(3, 3));
-  console.log("sumDouble(0, 0) → 0 " + sumDouble(0, 0));
-  console.log("sumDouble(0, 1) → 1 " + sumDouble(0, 1));
-  console.log("sumDouble(3, 4) → 7 " + sumDouble(3, 4));
-}
 
-function testMakes10() {
-  console.log();
-  console.log("makes10(9, 10) → true " + makes10(9, 10));
-  console.log("makes10(9, 9) → false " + makes10(9, 9));
-  console.log("makes10(1, 9) → true " + makes10(1, 9));
-  console.log("makes10(10, 1) → true " + makes10(10, 1));
-  console.log("makes10(10, 10) → true " + makes10(10, 10));
-  console.log("makes10(8, 2) → true " +	makes10(8, 2));
-  console.log("makes10(8, 3) → false " + makes10(8, 3));
-  console.log("makes10(10, 42) → true	" + makes10(10, 42));
-  console.log("makes10(12, -2) → true	" + makes10(12, -2));
-}
+
 
 function testParrotTrouble() {
   console.log();
@@ -146,23 +179,7 @@ function testAlarmClock() {
   console.log("alarmClock(6, false) → \"10:00\" " + "\"" + alarmClock(6, false) + "\"");
   console.log("alarmClock(0, true) → \"off\" " + "\"" + alarmClock(0, true) + "\"");
   console.log("alarmClock(6, true) → \"off\" " + "\"" + alarmClock(6, true) + "\"");
-  console.log("alarmClock(1, true) → \"10:00\" "	+ "\"" + alarmClock(1, true) + "\"");
+  console.log("alarmClock(1, true) → \"10:00\" "  + "\"" + alarmClock(1, true) + "\"");
   console.log("alarmClock(3, true) → \"10:00\" " + "\"" + alarmClock(3, true) +"\"");
   console.log("alarmClock(5, true) → \"10:00\" " + "\"" + alarmClock(5, true) + "\"");
-}
-
-function testCaughtSpeeding() {
-  console.log();
-  console.log("caughtSpeeding(60, false) → 0 " + caughtSpeeding(60, false));
-  console.log("caughtSpeeding(65, false) → 1 " + caughtSpeeding(65, false));
-  console.log("caughtSpeeding(65, true) → 0 " + caughtSpeeding(65, true));
-  console.log("caughtSpeeding(80, false) → 1 " + caughtSpeeding(80, false));
-  console.log("caughtSpeeding(85, false) → 2 " + caughtSpeeding(85, false));
-  console.log("caughtSpeeding(85, true) → 1 " + caughtSpeeding(85, true));
-  console.log("caughtSpeeding(70, false) → 1 " + caughtSpeeding(70, false));
-  console.log("caughtSpeeding(75, false) → 1 " + caughtSpeeding(75, false));
-  console.log("caughtSpeeding(75, true) → 1 " + caughtSpeeding(75, true));
-  console.log("caughtSpeeding(40, false) → 0 " + caughtSpeeding(40, false));
-  console.log("caughtSpeeding(40, true) → 0 " +	caughtSpeeding(40, true));
-  console.log("caughtSpeeding(90, false) → 2 " + caughtSpeeding(90, false));
 }
