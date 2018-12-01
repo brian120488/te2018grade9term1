@@ -1,4 +1,4 @@
-const READLINE = require("readline-sync");
+  const READLINE = require("readline-sync");
 
 let enterHouse;
 let checkHouse;
