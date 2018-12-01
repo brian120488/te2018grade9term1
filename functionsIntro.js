@@ -34,3 +34,18 @@ console.log(userAge);
 if (userAge < 17) {
 	console.log("No R -Rated moveis!");
 }
+
+
+let dog = {
+	numLegs:4,
+	aputate: function(legs) {
+		this.numLegs = this.numLegs - legs;
+	}
+};
+
+console.log(`This is your new puppy! He has ${dog.numLegs} legs`);
+console.log("Unfortunately, he now has cancer. We may need to amputate both legs to be safe but we could try to save one.")
+
+let legs = REALDINE.question("Would you like to try to save on leg or play it safe?(1 or 2): ")
+dog.amputate(legs);
+console.log(`He now has ${dog.numLegs} leg(s) and no cancer.`);
