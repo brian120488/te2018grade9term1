@@ -53,7 +53,7 @@ let cannon = {
 	name: 'Glass Cannon',
 	weapon: 'cannon',
 	attack: 25,
-	health: 10,
+	health: 10
 };
 
 let soldier = {
@@ -61,10 +61,47 @@ let soldier = {
 	weapon: 'AK-47',
 	attack: 15,
 	health: 30,
-}
+};
+
+let tank = {
+	name: 'Tank',
+	weapon: 'bomb shells',
+	attack: 25,
+	health: 25
+};
+
+let commander = {
+	name: 'Commander',
+	weapon: 'minigun',
+	attack: 20,
+	health: 30
+};
+
+let zombie = {
+	name: 'Zombie',
+	weapon: 'N/A',
+	attack: 5,
+	health: 35
+};
+
+let brian = {
+	name: 'Brian',
+	weapon: 'hacks',
+	attack: 25,
+	health: 15
+};
+
+let jack = {
+	name: 'Jack',
+	weapon: 'stuff',
+	attack: 20,
+	health: 5
+};
+
+
 //TODO: Add the names for your card objects to this list
 //Tip: Don't forget the commas
-let deck = [ogre, wizard, dragon, knight, cannon, soldier];
+let deck = [ogre, wizard, dragon, knight, cannon, soldier, tank, commander, zombie, brian, jack];
 
 //Runs each new round as long as a castle has not been destroyed and the user wants to keep playing
 while(playerCastle.health > 0 && enemyCastle.health > 0 && keepPlaying) {
@@ -76,21 +113,44 @@ while(playerCastle.health > 0 && enemyCastle.health > 0 && keepPlaying) {
 
 	//TODO: Print the details of the card the computer uses 
 	
-	console.log(`Enemy played: ${enemy.name}  
-		Weapon: ${enemy.weapon}    
+	console.log(`Enemy played: ${enemy.name}  	
 		Attack: ${enemy.attack}pts     
 		Health: ${enemy.health}pts `);
+
 	//TODO: Determine the winning card based on Castle points system in manual. 
-	let x;
+	
+	while(player.health > 0 && enemy.health > 0){
+		if(player.attack >= enemy.attack) {
+			enemy.health = enemy.health - player.attack;
+			player.attack = player.attack - enemy.health;
+		}
+			
+		else if(enemy.attack > player.attack) {
+			player.health = player.health - enemy.attack;
+			enemy.attack = enemy.attack - player.health;
+		}
 
-	if(player.attack >= enemy.attack) {
-		x = player.attack - enemy.health;
-		if(x >= 0)
+			if(enemy.health > 0 && player.attack > enemy.attack) {
+				player.health = player.health - enemy.attack;
+			}
+			
+			else if(enemy.health <= 0 && player.attack > enemy.attack) {
+				enemyCastle.health = enemyCastle.health - player.attack;
+			}
+			
+			else if(player.health > 0 && enemy.attack > player.attack) {
+				enemy.health = enemy.health - player.attack;
+			}
+			
+			else if(player.health <= 0 && enemy.attack > player.attack) { 
+				playerCastle.health = playerCastle.health - enemy.attack;
+			}
+	}
 
-	}
-	else if(enemy.attack > player.attack) {
-		enemy.attack - player.attack
-	}
+		
+	
+	
+		
 
 
 	//TODO: Print player card that won this round 
@@ -113,9 +173,9 @@ while(playerCastle.health > 0 && enemyCastle.health > 0 && keepPlaying) {
 	//Allow user a chance to quit the game
 	quitOrPlayOn();
 
-}
 
 
+}	
 
 //TODO: Print the winner of the game.
 
@@ -140,7 +200,7 @@ function selectHands() {
 	playerCards = [];
 	enemyCards = [];
 	let i;
-	for (i=0; i < 4; i++) {
+	for (i=0; i < 5; i++) {
 		let randomNumber = Math.floor(Math.random()*playerDeck.length);
 		let card1 = playerDeck[randomNumber];
 		playerCards.push(card1);
