@@ -121,13 +121,6 @@ alarmClock(0, false) → "10:00"
 testAlarmClock();
 
 function alarmClock(day, vac) {
-  if(vac == "yes") {
-    let vac1 = true;
-  }
-  else {
-    let vac1 = false;
-  }
-
   if(vac == false && day > 0 && day < 6){
     let time = "7:00";
     return time;
