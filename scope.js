@@ -9,9 +9,9 @@ let villain = {
   name: 'Voldemort',
   strength: 9,
   hearts: 25,
+  catchphrase: undefined,
   battleCry: function() {
-    let catchphrase = "You're a fool Harry Potter, and you will lose";
-    return catchphrase;
+    console.log(this.catchphrase);
   }
 };
 
@@ -34,7 +34,6 @@ let villain = {
  villain.catchphrase = 'Avada Kedavra!';
  console.log(`The next line should print: ${villain.catchphrase}`);
  villain.battleCry();
- console.log(villain.catchphrase);
  console.log('\n\n\n\n\n');
 
 
