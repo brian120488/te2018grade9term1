@@ -3,20 +3,25 @@
 // and includes properties of owner, withdrawalLimit, balance, and bankName
 // it also has three methods that you will have to create!
 let bankAccount = {
-  owner: "Brian",
+  owner: undefined,
   withdrawalLimit: 50,
   balance: 100,
   bankName: 'Brank',
   deposit: function(money) {
     this.balance = this.balance + money;
+    console.log("Success!");
   },
   withdraw: function(amount) {
     if(amount < this.withdrawalLimit) {
       this.balance = this.balance - amount;
+      console.log("Success!");
+    }
+    else if(amount > this.withdrawalLimit) {
+      console.log("Withdrawal ammount too high!");
     }
   },
   createGreeting: function() {
-    let greeting = "Hi! Give me all your money!";
+    let greeting = "Hi "+this.owner+"! Welcome to "+this.bankName+"! Give me all your money!";
     return greeting; 
   }
 };
@@ -30,6 +35,7 @@ greeting = bankAccount.createGreeting();
 
 // **** Problem 1 Tests ****
 console.log('**** Problem 1 Tests ****');
+bankAccount.owner = "Brian";
 console.log(`${typeof bankAccount.owner}... should be string`);
 console.log(`${bankAccount.createGreeting()}... should include a greeting, ${bankAccount.owner}, and ${bankAccount.bankName}`);
 
