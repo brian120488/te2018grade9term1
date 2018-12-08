@@ -10,11 +10,12 @@ withoutEnd("coding") → "odin"
 *******************************************************************************/
 
 function withoutEnd(str) {
-
+let s = str.substring(1, str.length - 1);
+  return s;
 }
 
 // Remove comment below to test this function.
-//testWithoutEnd();
+testWithoutEnd();
 
 /******************************************************************************
                                    frontAgain()
@@ -29,11 +30,16 @@ frontAgain("ed") → true
 
 
 function frontAgain(str) {
-
+  if(str.substring(0, 2) == str.substring(str.length - 2, str.length) && str.length > 1){
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 // Test this function.
-//testFrontAgain();
+testFrontAgain();
 
 /******************************************************************************
                                    deFront()
@@ -48,11 +54,25 @@ deFront("away") → "aay"
 *******************************************************************************/
 
 function deFront(str) {
-
+  if(str.length < 2) {
+    return "";
+  }
+  else if(str.charAt(0) == "a" && str.charAt(1) != "b") {
+    return "a" + str.substring(2, str.length);
+  }
+  else if(str.charAt(0) != "a" && str.charAt(1) == "b") {
+    return "b" + str.substring(2, str.length);
+  }
+  else if(str.charAt(0) == "a" && str.charAt(1) == "b") {
+    return str;
+  }
+  else {
+    return str.substring(2, str.length);
+  }
 }
 
 // Test this function.
-//testDeFront();
+testDeFront();
 
 /******************************************************************************
                                    without2()
@@ -68,11 +88,21 @@ without2("Hi") → ""
 *******************************************************************************/
 
 function without2(str) {
-
+  if(str.length >= 2) {
+    if(str.substring(0,2) == str.substring(str.length - 2, )) {
+      return str.substring(2);
+    }
+    else {
+      return str;
+    }
+  }
+  else {
+    return str;
+  }
 }
 
 // Test this function.
-//testWithout2();
+testWithout2();
 
 /******************************************************************************
                                    withoutX2()
@@ -87,11 +117,22 @@ withoutX2("Hi") → "Hi"
 *******************************************************************************/
 
 function withoutX2(str) {
-
+  if(str.charAt(0) == "x" && str.charAt(1) != "x") {
+    return str.substring(1, str.length);
+  }
+  else if(str.charAt(0) != "x" && str.charAt(1) == "x") {
+    return str.charAt(0) + str.substring(2, str.length);
+  }
+  else if(str.charAt(0) == "x" && str.charAt(1) == "x") {
+    return str.substring(2, str.length);
+  }
+  else {
+    return str;
+  }
 }
 
 // Test this function.
-//testWithoutX2();
+testWithoutX2();
 
 /****************************************************************************
                                     Tests
