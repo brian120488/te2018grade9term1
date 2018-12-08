@@ -9,10 +9,10 @@ let bankAccount = {
   bankName: 'Brank',
   deposit: function(money) {
     this.balance = this.balance + money;
-    console.log("Success!");
+    console.log(`Success! You deposited $${money}!`);
   },
   withdraw: function(amount) {
-    if(amount < this.withdrawalLimit) {
+    if(amount <= this.withdrawalLimit && amount <= this.balance && amount > 0) {
       this.balance = this.balance - amount;
       console.log("Success!");
     }
