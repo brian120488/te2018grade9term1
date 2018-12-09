@@ -19,7 +19,10 @@ let fantasyName;
 *******************************************************************************/
 
 function getNewFirstName() {
-
+  firstName = READLINE.question("What is your first name?: ");
+  lastName = READLINE.question("What is your last name?: ");
+  let newFirstName = firstName.substring(0, 3) + lastName.substring(0, 2);
+  return newFirstName;
 }
 
 /******************************************************************************
@@ -31,7 +34,10 @@ function getNewFirstName() {
 *******************************************************************************/
 
 function getNewLastName() {
-
+  momMaidenName = READLINE.question("What is your mother's maiden name?: ");
+  cityBorn = READLINE.question("What city were you born in?: ");
+  let newLastName = momMaidenName.substring(0, 3) + cityBorn.substring(0, 4);
+  return newLastName;
 }
 
 /******************************************************************************
@@ -42,7 +48,9 @@ function getNewLastName() {
 *******************************************************************************/
 
 function getTitle() {
-
+  dreamCar = READLINE.question("What is your dream car?: ");
+  let title = lastName.charAt(lastName.length) + lastName.charAt(lastName.length - 1) + lastName.charAt(lastName.length - 2) + dreamCar; 
+  return title;
 }
 
 /******************************************************************************
@@ -53,7 +61,10 @@ function getTitle() {
 *******************************************************************************/
 
 function getHonorific() {
-
+  street = READLINE.question("What street do you live on?: ");
+  title = lastName.charAt(lastName.length) + lastName.charAt(lastName.length - 1) + lastName.charAt(lastName.length - 2) + dreamCar;
+  let honorific = title + " of " + street;
+  return honorific;
 }
 
 /******************************************************************************
@@ -67,7 +78,12 @@ function getHonorific() {
 *******************************************************************************/
 
 function run() {
+  newFirstName = getNewFirstName();
+  newLastName = getNewLastName();
+  title = getTitle();
+  honorific = getHonorific();
 
+  console.log("Everyone run from "+newFirstName+" "+newLastName+", "+honorific+"!");
 }
 
 // Run the program!
