@@ -9,12 +9,17 @@ firstLast6([6, 1, 2, 3]) → true
 firstLast6([13, 6, 1, 2, 3]) → false
 *******************************************************************************/
 
-function firstLast6(nums) {
-
+/*function firstLast6(nums) {
+  if(nums [nums.length - 1] == 6 || nums [0] == 6) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 // Remove comment below to test this function.
-//testFirstLast6();
+testFirstLast6();
 
 /******************************************************************************
                                    midThree()
@@ -27,12 +32,15 @@ midThree([8, 6, 7, 5, 3, 0, 9]) → [7, 5, 3]
 midThree([1, 2, 3]) → [1, 2, 3]
 *******************************************************************************/
 
-function midThree(nums) {
-
+/*function midThree(nums) {
+  let first = Math.floor(nums.length / 2 - 1);
+  let second = first + 1;
+  let third = second + 1;
+  return [nums[first], nums[second], nums[third]];
 }
 
 // Remove comment below to test this function.
-//testMidThree();
+testMidThree();
 
 /******************************************************************************
                                    fizzBuzz()
@@ -55,8 +63,37 @@ fizzBuzz(1, 11) → ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "B
 *******************************************************************************/
 
 function fizzBuzz(start, end) {
+  let array = [start, end - 1];
+  let amountOfMiddleNumbers = end - start - 1;
+  let counter = end - amountOfMiddleNumbers;
+  let counter1 = 1;
+  while(array.length != amountOfMiddleNumbers + 1) {
+    array.splice(counter1, 0, counter);
+    counter++;
+    counter1++;
+  }
 
+  let counter2 = 0;
+  while(counter2 < array.length) {
+    counter2++;
+    if(array [counter2] % 3 == 0 && array [counter2] % 5 != 0) {
+      array [counter2] = '"'+"Fizz"+'"';
+    }
+    if(array [counter2] % 3 != 0 && array [counter2] % 5 == 0) {
+      array [counter2] = '"'+"Buzz"+'"';
+    }
+    if(array [counter2] % 3 == 0 && array [counter2] % 5 == 0) {
+      array [counter2] = '"'+"FizzBuzz"+'"';
+    }
+  }
+  console.log("["+array+"]");
 }
+
+
+fizzBuzz(3, 16);
+//array.sort();
+//array.toString();
+
 
 // Remove comment below to test this function.
 //testFizzBuzz();
