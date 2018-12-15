@@ -32,7 +32,7 @@ midThree([8, 6, 7, 5, 3, 0, 9]) → [7, 5, 3]
 midThree([1, 2, 3]) → [1, 2, 3]
 *******************************************************************************/
 
-/*function midThree(nums) {
+function midThree(nums) {
   let first = Math.floor(nums.length / 2 - 1);
   let second = first + 1;
   let third = second + 1;
@@ -77,20 +77,19 @@ function fizzBuzz(start, end) {
   while(counter2 < array.length) {
     counter2++;
     if(array [counter2] % 3 == 0 && array [counter2] % 5 != 0) {
-      array [counter2] = '"'+"Fizz"+'"';
+      array [counter2] = "Fizz";
     }
     if(array [counter2] % 3 != 0 && array [counter2] % 5 == 0) {
-      array [counter2] = '"'+"Buzz"+'"';
+      array [counter2] = "Buzz";
     }
     if(array [counter2] % 3 == 0 && array [counter2] % 5 == 0) {
-      array [counter2] = '"'+"FizzBuzz"+'"';
+      array [counter2] = "FizzBuzz";
     }
   }
-  console.log("["+array+"]");
+  return array;
 }
 
 
-fizzBuzz(3, 16);
 //array.sort();
 //array.toString();
 
@@ -111,11 +110,18 @@ copyEvens([6, 1, 2, 4, 5, 8], 3) → [6, 2, 4]
 *******************************************************************************/
 
 function copyEvens(nums, count) {
-
+  let counter = 0;
+  while(counter <= nums.length) {
+    if(nums [counter] % 2 != 0) {
+      nums.pop(counter);
+    }
+    counter++;
+  }
+  return nums;
 }
 
 // Remove comment below to test this function.
-//testCopyEvens();
+testCopyEvens();
 
 /******************************************************************************
                                    zeroMax()
