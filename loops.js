@@ -10,11 +10,26 @@ stringTimes("Hi", 1) → "Hi"
 *******************************************************************************/
 
 function stringTimes(str, n) {
+  let str1 = "";
+  for(let counter = 0; counter < n; counter++) {
+    str1 = str1 + str;
+  }
+  return str1;
+}
 
+// OR
+
+function stringTimes(str, n) {   
+  let larger = "";
+  while(n > 0) {
+    larger = larger + str;
+    n--;
+  }
+  return larger;
 }
 
 // Remove comment below to test this function.
-//testStringTimes();
+testStringTimes();
 
 /******************************************************************************
                                    countXX()
@@ -28,11 +43,17 @@ countXX("xxxx") → 3
 *******************************************************************************/
 
 function countXX(str) {
-
+  let number = 0;;
+  for(let counter = 0; counter < str.length; counter++) {
+    if("xx" == str.substring(counter, counter + 2)) {
+      number++;
+    }
+  }
+  return number;
 }
 
 // Remove comment below to test this function.
-//testCountXX();
+testCountXX();
 
 /******************************************************************************
                                    bobThere()
@@ -46,11 +67,16 @@ bobThere("bac") → false
 *******************************************************************************/
 
 function bobThere(str) {
-
+  for(let counter = 0; counter < str.length - 2; counter++) {
+    if(str.charAt(counter) == "b" && str.charAt(counter + 2) == "b") {
+      return true;
+    }
+  }
+  return false;
 }
 
 // Remove comment below to test this function.
-//testBobThere();
+testBobThere();
 
 /******************************************************************************
                                    countCode()
@@ -64,11 +90,17 @@ countCode("cozexxcope") → 2
 *******************************************************************************/
 
 function countCode(str) {
-
+  let num = 0;
+  for(let counter = 0; counter < str.length - 3; counter++) {
+    if(str.charAt(counter) == "c" && str.charAt(counter + 1) == "o" && str.charAt(counter + 3) == "e") {
+      num++;
+    }
+  }
+  return num;
 }
 
 // Remove comment below to test this function.
-//testCountCode();
+testCountCode();
 
 /******************************************************************************
                                    xyBalance()
@@ -85,11 +117,16 @@ xyBalance("bbb") → true
 *******************************************************************************/
 
 function xyBalance(str) {
-
+  for(let counter = 0; counter < str.length; counter++) {
+    if(str.charAt(counter) == "x" && str.substring(counter + 1, str.length).indexOf("y") == -1) {
+      return false;
+    }
+  }
+  return true;
 }
 
 // Remove comment below to test this function.
-//testXyBalance();
+testXyBalance();
 
 /****************************************************************************
                                     Tests
