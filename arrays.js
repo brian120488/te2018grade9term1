@@ -9,7 +9,7 @@ firstLast6([6, 1, 2, 3]) → true
 firstLast6([13, 6, 1, 2, 3]) → false
 *******************************************************************************/
 
-/*function firstLast6(nums) {
+function firstLast6(nums) {
   if(nums [nums.length - 1] == 6 || nums [0] == 6) {
     return true;
   }
@@ -19,7 +19,7 @@ firstLast6([13, 6, 1, 2, 3]) → false
 }
 
 // Remove comment below to test this function.
-testFirstLast6();
+//testFirstLast6();
 
 /******************************************************************************
                                    midThree()
@@ -40,7 +40,7 @@ function midThree(nums) {
 }
 
 // Remove comment below to test this function.
-testMidThree();
+//testMidThree();
 
 /******************************************************************************
                                    fizzBuzz()
@@ -72,7 +72,7 @@ function fizzBuzz(start, end) {
     counter++;
     counter1++;
   }
-
+ 
   let counter2 = 0;
   while(counter2 < array.length) {
     counter2++;
@@ -88,11 +88,6 @@ function fizzBuzz(start, end) {
   }
   return array;
 }
-
-
-//array.sort();
-//array.toString();
-
 
 // Remove comment below to test this function.
 //testFizzBuzz();
@@ -111,9 +106,9 @@ copyEvens([6, 1, 2, 4, 5, 8], 3) → [6, 2, 4]
 
 function copyEvens(nums, count) {
   let counter = 0;
-  while(counter <= nums.length) {
+  while(count <= nums.length) {
     if(nums [counter] % 2 != 0) {
-      nums.pop(counter);
+      nums.splice(counter, 1);
     }
     counter++;
   }
@@ -121,7 +116,7 @@ function copyEvens(nums, count) {
 }
 
 // Remove comment below to test this function.
-testCopyEvens();
+//testCopyEvens();
 
 /******************************************************************************
                                    zeroMax()
@@ -137,11 +132,27 @@ zeroMax([0, 1, 0]) → [1, 1, 0]
 *******************************************************************************/
 
 function zeroMax(nums) {
-
+  let array = [];
+  let counter1;
+  for(let counter = 0; counter < nums.length; counter++) {
+    if(nums [counter] == 0) {
+      array.push(0);
+      for(let counter1 = 1; array.length < nums.length; counter1++) {
+        if(nums[counter + counter1] != 0 && nums[counter + counter1]/2 != 2) {
+          array.slice();
+          array.push(nums[counter + counter1]);
+        }
+      }
+    }
+    else {
+      array.push(nums [counter]);
+    }
+  }
+  return array;
 }
 
 // Remove comment below to test this function.
-//testZeroMax();
+testZeroMax();
 
 /****************************************************************************
                                     Tests
